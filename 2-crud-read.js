@@ -15,4 +15,10 @@ Cat
 Cat
 
 // Bonus: Count documents
-Cat
+Cat.find({
+  age: { $gt: 0 },
+  color: { $in: ["white", "black", "orange"] },
+  friends: { $all: ["marco"] },
+})
+  .then((cats) => cats.forEach((cat) => console.log(cat)))
+  .catch((error) => console.log(error));
